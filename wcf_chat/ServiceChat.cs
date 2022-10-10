@@ -25,7 +25,7 @@ namespace wcf_chat
             };
             nextId++;
 
-            SendMsg(": "+user.Name+" подключился к чату!",0);
+            SendMsg(": " + user.Name + " Connected", 0);
             users.Add(user);
             return user.ID;
         }
@@ -36,7 +36,7 @@ namespace wcf_chat
             if (user!=null)
             {
                 users.Remove(user);
-                SendMsg(": "+user.Name + " покинул чат!",0);
+                SendMsg(": " + user.Name + " Disconneted", 0);
             }
         }
 
@@ -49,7 +49,7 @@ namespace wcf_chat
                 var user = users.FirstOrDefault(i => i.ID == id);
                 if (user != null)
                 {
-                    answer += ": " + user.Name+" ";
+                    answer += ": " + user.Name + " ";
                 }
                 answer += msg;
                 Console.WriteLine(answer);
