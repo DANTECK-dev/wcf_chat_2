@@ -8,5 +8,11 @@ namespace wcf_chat
         public string Name { get; set; }
 
         public OperationContext operationContext { get; set; }
+
+        public bool Ready { get; set; }
+
+        public bool Bot { get; set; }
+
+        public bool[] BlocedCards { get; set; }
     }
 }

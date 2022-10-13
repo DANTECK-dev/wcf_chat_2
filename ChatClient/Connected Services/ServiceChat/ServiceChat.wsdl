@@ -48,7 +48,7 @@
     <wsdl:part name="parameters" element="tns:DisconnectResponse" />
   </wsdl:message>
   <wsdl:message name="IServiceChat_SendMsg_InputMessage">
-    <wsdl:part name="parameters" element="tns:SendMsg" />
+    <wsdl:part name="parameters" element="tns:SendMessage" />
   </wsdl:message>
   <wsdl:message name="IServiceChat_MsgCallback_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:MsgCallback" />
@@ -62,8 +62,8 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceChat/Disconnect" message="tns:IServiceChat_Disconnect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceChat/DisconnectResponse" message="tns:IServiceChat_Disconnect_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SendMsg">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceChat/SendMsg" message="tns:IServiceChat_SendMsg_InputMessage" />
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceChat/SendMessage" message="tns:IServiceChat_SendMsg_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="MsgCallback">
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceChat/MsgCallback" message="tns:IServiceChat_MsgCallback_OutputCallbackMessage" />
@@ -90,12 +90,12 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SendMsg">
-      <soap12:operation soapAction="http://tempuri.org/IServiceChat/SendMsg" style="document" />
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="http://tempuri.org/IServiceChat/SendMessage" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-    </wsdl:operation>
+    </wsdl:operation>	  
     <wsdl:operation name="MsgCallback">
       <soap12:operation soapAction="http://tempuri.org/IServiceChat/MsgCallback" style="document" />
       <wsdl:output>

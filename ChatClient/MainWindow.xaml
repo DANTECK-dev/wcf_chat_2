@@ -1,53 +1,137 @@
 ﻿<Window
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="ChatClient.MainWindow"
-        Title="     CardGame"
-        Height="360"
-        Width="550"
-        Loaded="Window_Loaded" 
-        Closing="Window_Closing"
-        Style="{StaticResource VS2012WindowStyle}">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="ChatClient.MainWindow"
+    Title="     CardGame"
+    Height="365"
+    Width="558"
+    MinWidth="558"
+    MinHeight="365"
+    x:Name="Window"
+    Loaded="Window_Loaded" 
+    Closing="Window_Closing"
+    Style="{StaticResource VS2012WindowStyle}">
 
     <Grid Background="#FF252525">
-        <Grid x:Name="Lobby">
+        <Grid x:Name="Lobby" VerticalAlignment="Center" Visibility="Hidden" HorizontalAlignment="Center" Height="308" Width="528">
             <TextBox  x:Name="TB_UserName" HorizontalAlignment="Left" Height="35" Margin="172,10,0,0" TextWrapping="Wrap" Text="Имя юзера" VerticalAlignment="Top" Width="343" Style="{DynamicResource TextBoxStyle1}" Background="#FF252525" Foreground="#FF15F3CA" FontFamily="Comic Sans MS" FontSize="20">
                 <TextBox.Effect>
                     <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
                 </TextBox.Effect>
             </TextBox>
-            <Button x:Name="BT_Connect" Click="Button_Click" Content="Connect" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="147" Height="35" Style="{DynamicResource ButtonStyle1}" Foreground="#FF15F3CA" FontFamily="Comic Sans MS" FontSize="20">
+            <Button x:Name="BT_Connect" Click="BT_Connect_Click" Content="Подключится" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="147" Height="35" Style="{DynamicResource ButtonStyle1}" Foreground="#FF15F3CA" FontFamily="Comic Sans MS" FontSize="20">
                 <Button.Effect>
                     <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
                 </Button.Effect>
             </Button>
             <ListBox Style="{DynamicResource ListBoxStyle1}" x:Name="Logs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="265,238,0,0" Height="58" Width="250" Foreground="#FF15F3CA"/>
-            <Button x:Name="BT_Start" Click="BT_Start_Click" Content="Start" HorizontalAlignment="Left" Margin="10,238,0,0" VerticalAlignment="Top" Width="250" Height="58" Style="{DynamicResource ButtonStyle1}" FontFamily="Comic Sans MS" FontSize="35" Foreground="#FF15F3CA">
+            <Button x:Name="BT_Start" Click="BT_Start_Click" IsEnabled="False" Content="Играть" HorizontalAlignment="Left" Margin="10,238,0,0" VerticalAlignment="Top" Width="250" Height="58" Style="{DynamicResource ButtonStyle1}" FontFamily="Comic Sans MS" FontSize="35" Foreground="#FF15F3CA">
                 <Button.Effect>
                     <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
                 </Button.Effect>
             </Button>
-            <TextBox  x:Name="TB_Gamer1" HorizontalAlignment="Left" Height="50" Margin="10,82,0,0" TextWrapping="Wrap" Text="Игрок 1" VerticalAlignment="Top" Width="250" Style="{DynamicResource TextBoxStyle1}" Background="#FF252525" Foreground="#FF15F3CA" FontFamily="Comic Sans MS" FontSize="20">
+            <TextBox  x:Name="TB_Gamer1" HorizontalAlignment="Left" Height="50" Margin="10,82,0,0" TextWrapping="Wrap" Text="Бот 1" VerticalAlignment="Top" Width="250" Style="{DynamicResource TextBoxStyle1}" Background="#FF252525" Foreground="#FF15F3CA" FontFamily="Comic Sans MS" FontSize="20" IsEnabled="False">
                 <TextBox.Effect>
                     <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
                 </TextBox.Effect>
             </TextBox>
-            <TextBox  x:Name="TB_Gamer2" HorizontalAlignment="Left" Height="50" Margin="10,150,0,0" TextWrapping="Wrap" Text="Игрок 3" VerticalAlignment="Top" Width="250" Style="{DynamicResource TextBoxStyle1}" Background="#FF252525" Foreground="#FF15F3CA" FontFamily="Comic Sans MS" FontSize="20">
+            <TextBox  x:Name="TB_Gamer2" HorizontalAlignment="Left" Height="50" Margin="10,150,0,0" TextWrapping="Wrap" Text="Бот 2" VerticalAlignment="Top" Width="250" Style="{DynamicResource TextBoxStyle1}" Background="#FF252525" Foreground="#FF15F3CA" FontFamily="Comic Sans MS" FontSize="20" IsEnabled="False">
                 <TextBox.Effect>
                     <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
                 </TextBox.Effect>
             </TextBox>
-            <TextBox  x:Name="TB_Gamer3" HorizontalAlignment="Left" Height="50" Margin="265,82,0,0" TextWrapping="Wrap" Text="Игрок 2" VerticalAlignment="Top" Width="250" Style="{DynamicResource TextBoxStyle1}" Background="#FF252525" Foreground="#FF15F3CA" FontFamily="Comic Sans MS" FontSize="20">
+            <TextBox  x:Name="TB_Gamer3" HorizontalAlignment="Left" Height="50" Margin="265,82,0,0" TextWrapping="Wrap" Text="Бот 3" VerticalAlignment="Top" Width="250" Style="{DynamicResource TextBoxStyle1}" Background="#FF252525" Foreground="#FF15F3CA" FontFamily="Comic Sans MS" FontSize="20" IsEnabled="False">
                 <TextBox.Effect>
                     <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
                 </TextBox.Effect>
             </TextBox>
-            <TextBox  x:Name="TB_Gamer4" HorizontalAlignment="Left" Height="50" Margin="265,150,0,0" TextWrapping="Wrap" Text="Игрок 4" VerticalAlignment="Top" Width="250" Style="{DynamicResource TextBoxStyle1}" Background="#FF252525" Foreground="#FF15F3CA" FontFamily="Comic Sans MS" FontSize="20">
+            <TextBox  x:Name="TB_Gamer4" HorizontalAlignment="Left" Height="50" Margin="265,150,0,0" TextWrapping="Wrap" Text="Бот 4" VerticalAlignment="Top" Width="250" Style="{DynamicResource TextBoxStyle1}" Background="#FF252525" Foreground="#FF15F3CA" FontFamily="Comic Sans MS" FontSize="20" IsEnabled="False">
                 <TextBox.Effect>
                     <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
                 </TextBox.Effect>
             </TextBox>
+            <!--
+            <Button x:Name="BT_Bot3" Click="BT_Bot3_Click" MouseEnter="BT_Bot3_MouseEnter" MouseLeave="BT_Bot3_MouseLeave" IsEnabled="False" Content="Проголосовать за бота" HorizontalAlignment="Left" Margin="265,82,0,0" VerticalAlignment="Top" Width="250" Height="50" Style="{DynamicResource ButtonStyle2}" FontFamily="Comic Sans MS" FontSize="14" Foreground="#0015F3CA" FontWeight="Bold" BorderBrush="#0015F3CA" Background="#00252525">
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="BT_Bot4" Click="BT_Bot4_Click" MouseEnter="BT_Bot4_MouseEnter" MouseLeave="BT_Bot4_MouseLeave" IsEnabled="False" Content="Проголосовать за бота" HorizontalAlignment="Left" Margin="265,150,0,0" VerticalAlignment="Top" Width="250" Height="50" Style="{DynamicResource ButtonStyle2}" FontFamily="Comic Sans MS" FontSize="14" Foreground="#0015F3CA" FontWeight="Bold" Background="#00252525" BorderBrush="#0015F3CA">
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="BT_Bot2" Click="BT_Bot2_Click" MouseEnter="BT_Bot2_MouseEnter" MouseLeave="BT_Bot2_MouseLeave" IsEnabled="False" Content="Проголосовать за бота" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Width="250" Height="50" Style="{DynamicResource ButtonStyle2}" FontFamily="Comic Sans MS" FontSize="14" Foreground="#0015F3CA" FontWeight="Bold" BorderBrush="#0015F3CA" Background="#00252525">
+                <Button.Effect>
+                    <DropShadowEffect Color="#00252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
+                </Button.Effect>
+            </Button>
+            -->
         </Grid>
-        <Grid x:Name="Game" Visibility="Hidden"/>
+        <Grid x:Name="Game" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Height="308" Width="528">
+            <Label x:Name="L_Round" Content="Раунд 0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA"/>
+            <Canvas Margin="-7,182,10,0">
+                <Button x:Name="BT_Card1" Click="BT_Card_Click" MouseEnter="BT_Card_MouseEnter" MouseLeave="BT_Card_MouseLeave" IsEnabled="True" Content="Карта 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" Style="{DynamicResource ButtonStyle1}" FontFamily="Comic Sans MS" FontSize="14" FontWeight="Bold" Foreground="#FF15F3CA" Canvas.Left="10" Canvas.Top="10">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
+                    </Button.Effect>
+                </Button>
+                <Button x:Name="BT_Card2" Click="BT_Card_Click" MouseEnter="BT_Card_MouseEnter" MouseLeave="BT_Card_MouseLeave" IsEnabled="True" Content="Карта 2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" Style="{DynamicResource ButtonStyle1}" FontFamily="Comic Sans MS" FontSize="14" FontWeight="Bold" Foreground="#FF15F3CA" Canvas.Left="10" Canvas.Top="66">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
+                    </Button.Effect>
+                </Button>
+                <Button x:Name="BT_Card3" Click="BT_Card_Click" MouseEnter="BT_Card_MouseEnter" MouseLeave="BT_Card_MouseLeave" IsEnabled="True" Content="Карта 3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" Style="{DynamicResource ButtonStyle1}" FontFamily="Comic Sans MS" FontSize="14" FontWeight="Bold" Foreground="#FF15F3CA" Canvas.Left="115" Canvas.Top="10">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
+                    </Button.Effect>
+                </Button>
+                <Button x:Name="BT_Card4" Click="BT_Card_Click" MouseEnter="BT_Card_MouseEnter" MouseLeave="BT_Card_MouseLeave" IsEnabled="True" Content="Карта 4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" Style="{DynamicResource ButtonStyle1}" FontFamily="Comic Sans MS" FontSize="14" FontWeight="Bold" Foreground="#FF15F3CA" Canvas.Left="115" Canvas.Top="66">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
+                    </Button.Effect>
+                </Button>
+                <Button x:Name="BT_Card5" Click="BT_Card_Click" MouseEnter="BT_Card_MouseEnter" MouseLeave="BT_Card_MouseLeave" IsEnabled="True" Content="Карта 5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" Style="{DynamicResource ButtonStyle1}" FontFamily="Comic Sans MS" FontSize="14" FontWeight="Bold" Foreground="#FF15F3CA" Canvas.Left="220" Canvas.Top="10">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
+                    </Button.Effect>
+                </Button>
+                <Button x:Name="BT_Card6" Click="BT_Card_Click" MouseEnter="BT_Card_MouseEnter" MouseLeave="BT_Card_MouseLeave" IsEnabled="True" Content="Карта 6" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" Style="{DynamicResource ButtonStyle1}" FontFamily="Comic Sans MS" FontSize="14" FontWeight="Bold" Foreground="#FF15F3CA" Canvas.Left="220" Canvas.Top="66">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
+                    </Button.Effect>
+                </Button>
+                <Button x:Name="BT_Card7" Click="BT_Card_Click" MouseEnter="BT_Card_MouseEnter" MouseLeave="BT_Card_MouseLeave" IsEnabled="True" Content="Карта 7" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" Style="{DynamicResource ButtonStyle1}" FontFamily="Comic Sans MS" FontSize="14" FontWeight="Bold" Foreground="#FF15F3CA" Canvas.Left="326" Canvas.Top="10">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
+                    </Button.Effect>
+                </Button>
+                <Button x:Name="BT_Card8" Click="BT_Card_Click" MouseEnter="BT_Card_MouseEnter" MouseLeave="BT_Card_MouseLeave" IsEnabled="True" Content="Карта 8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" Style="{DynamicResource ButtonStyle1}" FontFamily="Comic Sans MS" FontSize="14" FontWeight="Bold" Foreground="#FF15F3CA" Canvas.Left="326" Canvas.Top="66">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
+                    </Button.Effect>
+                </Button>
+                <Button x:Name="BT_Card9" Click="BT_Card_Click" MouseEnter="BT_Card_MouseEnter" MouseLeave="BT_Card_MouseLeave" IsEnabled="True" Content="Карта 9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" Style="{DynamicResource ButtonStyle1}" FontFamily="Comic Sans MS" FontSize="14" FontWeight="Bold" Foreground="#FF15F3CA" Canvas.Left="431" Canvas.Top="10">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
+                    </Button.Effect>
+                </Button>
+                <Button x:Name="BT_Card10" Click="BT_Card_Click" MouseEnter="BT_Card_MouseEnter" MouseLeave="BT_Card_MouseLeave" IsEnabled="True" Content="Карта 10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" Style="{DynamicResource ButtonStyle1}" FontFamily="Comic Sans MS" FontSize="14" FontWeight="Bold" Foreground="#FF15F3CA" Canvas.Left="431" Canvas.Top="66">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#FF252525" Direction="300" ShadowDepth="7" Opacity="0.5" BlurRadius="9"/>
+                    </Button.Effect>
+                </Button>
+            </Canvas>
+            <Label x:Name="L_Scroe" Content="Счёт 0" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA"/>
+            <Label x:Name="L_Gamer1" Content="Бот" HorizontalAlignment="Left" Margin="122,10,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="L_Gamer2" Content="Бот" HorizontalAlignment="Left" Margin="264,10,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="L_Gamer3" Content="Бот" HorizontalAlignment="Left" Margin="401,10,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="L_Gamer1_Select" Content="Ожидание&#xD;&#xA;выбора" HorizontalAlignment="Left" Margin="122,50,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="70"/>
+            <Label x:Name="L_Gamer2_Select" Content="Ожидание&#xD;&#xA;выбора" HorizontalAlignment="Left" Margin="264,50,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="70"/>
+            <Label x:Name="L_Gamer3_Select" Content="Ожидание&#xD;&#xA;выбора" HorizontalAlignment="Left" Margin="401,50,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="70"/>
+            <Label x:Name="L_Gamer1_Status" Content="" HorizontalAlignment="Left" Margin="122,125,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="L_Gamer2_Status" Content="" HorizontalAlignment="Left" Margin="264,125,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="L_Gamer3_Status" Content="" HorizontalAlignment="Left" Margin="401,125,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
     </Grid>
 </Window>
