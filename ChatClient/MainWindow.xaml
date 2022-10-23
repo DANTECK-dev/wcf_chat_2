@@ -69,7 +69,7 @@
             -->
         </Grid>
         <Grid x:Name="Game" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Height="308" Width="528">
-            <Label x:Name="L_Round" Content="Раунд 0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA"/>
+            <Label x:Name="L_Round" Content="Раунд 1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA"/>
             <Canvas Margin="-7,182,10,0">
                 <Button x:Name="BT_Card1" Click="BT_Card_Click" MouseEnter="BT_Card_MouseEnter" MouseLeave="BT_Card_MouseLeave" IsEnabled="True" Content="Карта 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="50" Style="{DynamicResource ButtonStyle1}" FontFamily="Comic Sans MS" FontSize="14" FontWeight="Bold" Foreground="#FF15F3CA" Canvas.Left="10" Canvas.Top="10">
                     <Button.Effect>
@@ -122,16 +122,18 @@
                     </Button.Effect>
                 </Button>
             </Canvas>
-            <Label x:Name="L_Scroe" Content="Счёт 0" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA"/>
-            <Label x:Name="L_Gamer1" Content="Бот" HorizontalAlignment="Left" Margin="122,10,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <Label x:Name="L_Gamer2" Content="Бот" HorizontalAlignment="Left" Margin="264,10,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <Label x:Name="L_Gamer3" Content="Бот" HorizontalAlignment="Left" Margin="401,10,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="L_Score" Content="Счёт 0" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA"/>
+            <Label x:Name="L_Gamer1" Content="Бот" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="140" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="L_Gamer2" Content="Бот" HorizontalAlignment="Left" Margin="235,10,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="140" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="L_Gamer3" Content="Бот" HorizontalAlignment="Left" Margin="378,10,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="140" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="L_Gamer1_Select" Content="Ожидание&#xD;&#xA;выбора" HorizontalAlignment="Left" Margin="122,50,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="70"/>
             <Label x:Name="L_Gamer2_Select" Content="Ожидание&#xD;&#xA;выбора" HorizontalAlignment="Left" Margin="264,50,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="70"/>
             <Label x:Name="L_Gamer3_Select" Content="Ожидание&#xD;&#xA;выбора" HorizontalAlignment="Left" Margin="401,50,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="70"/>
             <Label x:Name="L_Gamer1_Status" Content="" HorizontalAlignment="Left" Margin="122,125,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="L_Gamer2_Status" Content="" HorizontalAlignment="Left" Margin="264,125,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="L_Gamer3_Status" Content="" HorizontalAlignment="Left" Margin="401,125,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="L_MySelect" Content="Выбрана" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="18" Foreground="#FF15F3CA"/>
+            <Label x:Name="L_Win" Content="Ты выйграл!!!" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource LabelStyle2}" FontFamily="Comic Sans MS" FontSize="35" Foreground="#FF15F3CA" Width="314" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="70"/>
         </Grid>
     </Grid>
 </Window>

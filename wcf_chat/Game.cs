@@ -43,12 +43,19 @@ namespace wcf_chat
     internal class Game
     {
         public int round { get; set; }
+        public bool isGameStarted { get; set; }
+        public int selected { get; set; }
 
-
-        public void RoundIncriment()
+        public Game()
         {
-            round++;
+            round = 1;
+            isGameStarted = false;
+            selected = 4;
         }
+        public void SelectedIncriment() => selected++;
+        public void SelectedDicriment() => selected--;
+        public void RoundIncriment() => round++;
+        
 
         public string WhoWin(ServerUser users)
         {

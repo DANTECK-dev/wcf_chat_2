@@ -17,12 +17,14 @@ namespace wcf_chat
         bool[] ready = new bool[4] { false, false, false, false };
         int nextId = 1;
         Game game = new Game();
+        string[] selectedCard = new string[4] { string.Empty, string.Empty, string.Empty, string.Empty };
+        //List<int> scores = new List<int>();
 
         public int Connect(string name)
         {
             try
             {
-                if (users.Count() >= 4) return 0;
+                if (users.Count() >= 4 || game.isGameStarted) return 0;
                 ServerUser user = new ServerUser()
                 {
                     ID = nextId,
@@ -35,6 +37,7 @@ namespace wcf_chat
                 nextId++;
 
                 //Send(user.Name + "|Connected");
+                game.SelectedDicriment();
                 users.Add(user);
                 return user.ID;
             }
@@ -54,8 +57,15 @@ namespace wcf_chat
                 {
                     users.Remove(user);
                     Send(user.Name + "|Disconnected");
+                    game.SelectedIncriment();
                 }
-            }
+                if (users.Count() == 0 && game.isGameStarted)
+                {
+                    Send("NextGame");
+                    game.round = 1;
+                    game.isGameStarted = false;
+                }
+                }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -89,11 +99,13 @@ namespace wcf_chat
                     Ready(id);
                     return;
                 }
+
                 else if (strings[0] == "unReady")
                 {
                     notReady(id);
                     return;
                 }
+
                 else if (strings[0] == "Users")
                 {
                     Users();
@@ -104,6 +116,28 @@ namespace wcf_chat
                     SelectCard(strings[1], id);
                     return;
                 }
+
+                else if (strings[0] == "CheckSelect")
+                {
+                    CheckSelect();
+                    return;
+                }
+
+                //else if (strings[0] == "Score")
+                //{
+                //    Score(id);
+                //    return;
+                //}
+                //else if (strings[0] == "TransformCard")
+                //{
+                //    TransformCards();
+                //    return;
+                //}
+                //else if (strings[0] == "NextRound")
+                //{
+                //    NextRound();
+                //    return;
+                //}
                 else
                 {
                     Send(message + "|" + id);
@@ -131,7 +165,7 @@ namespace wcf_chat
                     cou++;
                 }
             }
-            Send("Ready|" + cou);
+            Send("Ready|" + (cou + (4 - users.Count)));
             if (cou == users.Count)
             {
                 for (int i = 0; i < 3; i++)
@@ -140,6 +174,7 @@ namespace wcf_chat
                     Thread.Sleep(1000);
                 }
                 Send("StartGame");
+                game.isGameStarted = true;
             }
         }
         private void notReady(int id)
@@ -157,7 +192,7 @@ namespace wcf_chat
                     cou++;
                 }
             }
-            Send("Ready|" + cou);
+            Send("Ready|" + (cou + (4 - users.Count)));
         }
         private void Users()
         {
@@ -181,10 +216,80 @@ namespace wcf_chat
             {
                 if (users[i].ID == id)
                 {
-                    users[i].BlocedCards[Convert.ToInt32(selected)] = true;
+                    //users[i].BlocedCards[Convert.ToInt32(selected) - 1] = true;
+                    for(var j = 0; j < selectedCard.Length; j++)
+                    {
+                        if (selectedCard[j] == string.Empty)
+                        {
+                            selectedCard[j] = "|" + id + "|" + selected;
+                            break;
+                        }
+                    }
+                    break;
                 }
             }
-            Send("Selected|" + selected + "|" + id);
+            Send("Selected|" + id);
+            game.SelectedIncriment();
+            if(game.selected == 4)
+            {
+                CheckSelect();
+            }
         }
+        private void CheckSelect()
+        {
+            Random rand = new Random();
+            string answerSelectedCard = "SelectedCard";
+            for(int i = 0; i < selectedCard.Length; i++)
+            {
+                if (selectedCard[i] == string.Empty) break;
+                answerSelectedCard += selectedCard[i];
+            }
+            for(int i = 0; i < 4 - users.Count; i++)
+            {
+                answerSelectedCard += "|Бот|" + rand.Next(1, 10);
+            }
+            Send(answerSelectedCard);
+            game.selected = 4 - users.Count;
+            game.RoundIncriment();
+            Thread.Sleep(1000);
+            Send("TransformCard");
+            Thread.Sleep(1000);
+            Send("NextRound");
+            Thread.Sleep(1000);
+            for (int i = 0; i < selectedCard.Length; i++)
+            {
+                selectedCard[i] = string.Empty;
+            }
+            if(game.round == 9)
+            {
+                Send("NextGame");
+                //scores.Clear();
+                game.round = 1;
+                game.isGameStarted = false;
+            }
+        }
+        //private void Score(int score)
+        //{
+        //    if (users.Count > 1)
+        //    {
+        //        scores.Add(score);
+
+        //        if(scores.Count == users.Count)
+        //        {
+        //          Send("Score|" + scores.Max());
+        //          Thread.Sleep(3000);
+        //        }
+        //    }
+        //}
+        //private void TransformCards()
+        //{
+        //    Thread.Sleep(3000);
+        //    Send("TransformCard");
+        //}
+        //private void NextRound()
+        //{
+        //    Thread.Sleep(3000);
+        //    Send("NextRound");
+        //}
     }
 }
