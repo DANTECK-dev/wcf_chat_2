@@ -98,13 +98,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\ServiceChat\item.xsd">
+    <None Include="Connected Services\ServiceChat\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceChat\item1.xsd">
+    <None Include="Connected Services\ServiceChat\item21.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceChat\ServiceChat.wsdl" />
+    <None Include="Connected Services\ServiceChat\ServiceChat1.wsdl" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -132,7 +132,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceChat\item.disco" />
+    <None Include="Connected Services\ServiceChat\item1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,9 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Threading.Tasks;
-
 namespace ChatClient.ServiceChat {
     
     
@@ -34,7 +31,7 @@ namespace ChatClient.ServiceChat {
         void SendMessage(string message, int id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceChat/SendMessage")]
-        System.Threading.Tasks.Task SendMsgAsync(string message, int id);
+        System.Threading.Tasks.Task SendMessageAsync(string message, int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,7 +52,7 @@ namespace ChatClient.ServiceChat {
         public ServiceChatClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
         }
-
+        
         public ServiceChatClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
                 base(callbackInstance, endpointConfigurationName) {
         }
@@ -92,8 +89,8 @@ namespace ChatClient.ServiceChat {
             base.Channel.SendMessage(message, id);
         }
         
-        public System.Threading.Tasks.Task SendMsgAsync(string message, int id) {
-            return base.Channel.SendMsgAsync(message, id);
+        public System.Threading.Tasks.Task SendMessageAsync(string message, int id) {
+            return base.Channel.SendMessageAsync(message, id);
         }
     }
 }
