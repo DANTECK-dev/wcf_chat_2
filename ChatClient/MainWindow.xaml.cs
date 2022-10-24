@@ -121,7 +121,7 @@ namespace ChatClient
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                //MessageBox.Show(ex.StackTrace, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
         }
@@ -200,7 +200,7 @@ namespace ChatClient
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                //MessageBox.Show(ex.StackTrace, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
         }
@@ -406,8 +406,25 @@ namespace ChatClient
             }
 
             for (int i = 0; i < sel.Length; i++)
-                for (int j = 0; j < sel.Length && j != i; j++)
-                    if (sel[j] == sel[i]) sel[j] = sel[i] = 0;
+            {
+                int z = sel[i];
+
+                if (sel[i] == 2) continue;
+                if (sel[i] == 0) continue;
+
+                if (sel.Any(x => x == sel[i]))
+                {
+                    for (int j = 0; j < sel.Length; j++)
+                    {
+                        if (i == j) continue;
+                        if (sel[j] == 2) continue;
+                        if (sel[j] == 0) continue;
+                        if (z == sel[j]) sel[j] = sel[i] = 0;
+                    }
+                }
+            }
+                //for (int j = 0; j < sel.Length && j != i; j++)
+                //    if (sel[j] == sel[i]) sel[j] = sel[i] = 0;
 
             L_MySelect.Content = "Стало\nкарта " + sel[0];
 
